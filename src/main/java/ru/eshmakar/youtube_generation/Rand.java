@@ -1,9 +1,8 @@
 package ru.eshmakar.youtube_generation;
-
+import java.io.InputStream;
 import java.util.Random;
 
 public class Rand {
-
     public String randd() {
         int leftLimit = 45; // symbol '-'
         int rightLimit = 122; // letter 'z'
@@ -21,12 +20,11 @@ public class Rand {
 
         String generatedString = buffer.toString();
         generatedString = generatedString.replace("\\", "").replace("[", "").replace("^", "").replace("?", "").replace("/", "").replace(".", "").replace("@", "").replace("=", "").replace(">", "").replace("<", "").replace(";", "").replace(":", "").replace("]", "").replace("`", "");
-        String site = "https://www.youtube.com/watch?v=" + generatedString.substring(0, 11); //переобразует в ссылку
+        String url = "https://www.youtube.com/watch?v=" + generatedString.substring(0, 11); //переобразует в ссылку
         String blank = "_blank";
 
         char dm = (char) 34; // символ двойные кавычки, чтобы составить html тег
-
-        return "<p><a href=" + dm + site + dm + " target=" + dm + blank + dm + ">" + site + "</a></p>"; //пишет название сайта, при нажатии открывает сайт в новый вкладке
+        return "<p><a href=" + dm + url + dm + " target=" + dm + blank + dm + ">" + url + "</a></p>"; //пишет название сайта, при нажатии открывает сайт в новый вкладке
     }
 }
 
